@@ -83,6 +83,6 @@ tar -cvf exam_NAME.tar exam_NAME
 scp -i "data_enginering_machine.pem" ubuntu@YOUR_IP:~/exam_NAME.tar .
 ```
 ---
-Key Tools: `curl`, `cron`, `jq`, `tar`, `scp`.
-Constraints: Scripts must be executable (`chmod +x`).
-Submission: Upload `.tar` archive to the platform.
+- Key Tools: `curl`, `cron`, `jq`, `tar`, `scp`.
+- Constraints: Scripts must be executable (`chmod +x`).
+- Submission: Upload `.tar` archive to the platform.
