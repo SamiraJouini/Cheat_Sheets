@@ -1,1 +1,105 @@
+```markdown
+# SQL Tables Operations Guide  
+**Key Concepts & Commands**  
 
+---
+
+## 1. Table Creation  
+**Syntax**:  
+```sql  
+CREATE TABLE table_name (  
+    column1 DATATYPE CONSTRAINT,  
+    column2 DATATYPE,  
+    PRIMARY KEY (column1),  
+    FOREIGN KEY (column2) REFERENCES other_table(column)  
+);  
+```  
+
+**Example**:  
+```sql  
+CREATE TABLE courses (  
+    id INTEGER NOT NULL,  
+    name VARCHAR,  
+    PRIMARY KEY (id)  
+);  
+```  
+
+---
+
+## 2. Temporary Tables  
+- Exist only during the current session:  
+```sql  
+CREATE TEMPORARY TABLE temp_table (...);  
+```  
+
+---
+
+## 3. Constraints  
+- Add constraints later (SQLite workaround required):  
+```sql  
+ALTER TABLE students  
+ADD CONSTRAINT FK_course_id  
+FOREIGN KEY (course_id) REFERENCES courses(id);  
+```  
+
+---
+
+## 4. Row Operations  
+### Insert  
+```sql  
+INSERT INTO courses VALUES (1, 'Data Engineering');  
+```  
+
+### Delete  
+```sql  
+DELETE FROM students WHERE id = 1;  
+```  
+
+### Update  
+```sql  
+UPDATE students SET lastname = 'Durand' WHERE id = 2;  
+```  
+
+---
+
+## 5. Foreign Key Constraints  
+- Prevent orphaned records (e.g., deleting a course with enrolled students fails).  
+
+---
+
+## 6. Table Deletion  
+- Order matters (delete dependent tables first):  
+```sql  
+DROP TABLE IF EXISTS students;  
+DROP TABLE IF EXISTS courses;  
+```  
+
+---
+
+## 7. Views  
+- Virtual tables for simplified querying:  
+```sql  
+CREATE VIEW v_tracks AS  
+SELECT tracks.name, albums.Title AS album  
+FROM tracks  
+JOIN albums ON tracks.AlbumId = albums.AlbumId;  
+```  
+
+---
+
+## 8. Key Commands  
+- Verify tables:  
+```sql  
+SELECT * FROM table;  
+```  
+
+- Enable foreign keys (SQLite):  
+```sql  
+PRAGMA foreign_keys = ON;  
+```  
+``` 
+
+**To use**:  
+1. Save as `.md` file.  
+2. Preview in any Markdown viewer (e.g., VS Code, GitHub, Obsidian).  
+3. Export to PDF using tools like [Markdown to PDF converters](https://md2pdf.netlify.app/).
