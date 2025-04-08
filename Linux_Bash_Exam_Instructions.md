@@ -20,7 +20,8 @@
 3. **Script Requirements**
 
 - Create folder `exam_NAME/exam_bash` and script `exam.sh` with:
-```#!/bin/bash
+```bash
+#!/bin/bash
 echo "$(date)" >> sales.txt
 # Add loop to fetch GPU sales via curl (e.g., curl "http://0.0.0.0:5000/rtx3060")
 ```
@@ -36,7 +37,8 @@ rtx3070:[sales]
 
 4. **Cron Job**
 - Schedule script to run **every minute from 7 AM to 9 PM, March/June/November, Mon-Fri**:
-```#!/bin/bash
+```bash
+#!/bin/bash
 * 7-21 * 3,6,11 1-5 /path/to/exam.sh
 ```
 - Save cron entry to `cron.txt`.
@@ -44,7 +46,7 @@ rtx3070:[sales]
 **Optional JQ Section**
 1. **Setup**
 - Download JSON file:
-```#!/bin/bash
+```bash
 wget https://dst-de.s3.eu-west-3.amazonaws.com/bash_fr/people.json
 ```
 - Create `exam_jq.sh` and `res_jq.txt` with formatted responses. 
@@ -75,14 +77,14 @@ exam_NAME/
     └── bonus/ (people_6.json, people_9.txt, etc.)
 ```
 2. **Create Archive**
-```#!/bin/bash
+```bash
 tar -cvf exam_NAME.tar exam_NAME
 ```
 3. **Transfer via SCP**
-```#!/bin/bash
+```bash
 scp -i "data_enginering_machine.pem" ubuntu@YOUR_IP:~/exam_NAME.tar .
 ```
 ---
-- Key Tools: `curl`, `cron`, `jq`, `tar`, `scp`.
-- Constraints: Scripts must be executable (`chmod +x`).
-- Submission: Upload `.tar` archive to the platform.
+Key Tools: `curl`, `cron`, `jq`, `tar`, `scp`.
+Constraints: Scripts must be executable (`chmod +x`).
+Submission: Upload `.tar` archive to the platform.
