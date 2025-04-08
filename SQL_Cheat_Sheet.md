@@ -158,7 +158,7 @@ SELECT Name, Milliseconds FROM tracks ORDER BY Milliseconds DESC LIMIT 5;
 - **HAVING**: Filters grouped results (e.g., albums with ≥2 tracks: `GROUP BY AlbumId HAVING COUNT(TrackId) >= 2;`).  
 ---
 **4. Selection**  
-- **Upstream (WHERE)**: Filters rows before grouping (e.g., tracks >400s: `WHERE Milliseconds > 400000`).  
+- **Upstream (WHERE)**: Filters rows before grouping (e.g., `tracks >400s: WHERE Milliseconds > 400000`).  
 - **Downstream (HAVING)**: Filters groups after aggregation (e.g., non-single albums).  
 ---
 **5. Best Practices**  
